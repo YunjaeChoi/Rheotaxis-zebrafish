@@ -88,10 +88,14 @@ Notebook(app_notebook.ipynb) consists python code for running user's frontend.
 ## 3. Postprocess
 
 - Output Type:
-  - excel: Outputs post processed data in excel from excel files in `Post processing excel file paths`.
+  - excel: Outputs post processed data in excel from excel files in `Post processing excel file paths`. (csv files are also generated.)
   - video: Outputs post processed video from excel files and matching video files in `Post processing video file paths`.
 
 - Tracker:
+  - KalmanTracker: Tracking by multi-object kalman filter.
+    - Max age: maximum age for tracked object.
+    - Min hits: minimum threshold of detections for a new object.
+    - Distance Threshold: maximum distance threshold for updating existing object. 
   - VicinityTracker: Tracking by searching vicinity.
     - Number of frames to find: max number of frames for searching.
     - Max distance to find: max distance for searching in pixels.
