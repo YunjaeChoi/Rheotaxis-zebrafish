@@ -1,0 +1,3 @@
+include setup.py
+recursive-include zebrafish_on_jupyter *
+recursive-include jupyter-config *.json

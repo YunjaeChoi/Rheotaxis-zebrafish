@@ -1,0 +1,7 @@
+{
+  "NotebookApp": {
+    "nbserver_extensions": {
+      "zebrafish_on_jupyter": true
+    }
+  }
+}

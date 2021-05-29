@@ -1,0 +1,36 @@
+import setuptools
+
+setuptools.setup(name='zebrafish',
+      version='1.0.0',
+      description='zebrafish: Zebrafish detection and tracking tool for zebrafish rheotaxis.',
+      #url='https://github.com/YunjaeChoi/',
+      author='Yunjae Choi',
+      author_email='yunjae.choi1000@gmail.com',
+      license='MIT',
+      packages=setuptools.find_packages(),
+      zip_safe=False,
+      install_requires=[
+          'numpy==1.19.1',
+          'imageio==2.9.0',
+          'opencv-python==3.4.3.18',
+          'moviepy==1.0.3',
+          'tqdm==4.31.1',
+          'plotly==4.9.0',
+          'pillow==6.0.0',
+          'pandas==0.24.2',
+          'glob2==0.6',
+          'matplotlib==3.0.3',
+          'scipy==1.2.1',
+          'lapsolver==1.0.2',
+          'openpyxl==2.6.2',
+          'xlrd==1.2.0',
+          'xlsxwriter==1.1.8',
+          'xlwt==1.3.0',
+          'filterpy==1.4.5',
+          'lap==0.4.0',
+          'scikit-image==0.15.0'
+      ],
+      classifiers=[
+        "Programming Language :: Python :: 3",
+      ],
+)

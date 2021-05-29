@@ -1,0 +1,146 @@
+{
+  "cellNums": {
+    "initialize": 0,
+    "updateFiles": 1,
+    "updateSettings": 2,
+    "previewDetection": 3,
+    "detect": 4,
+    "post": 5
+  },
+  "detectionOutputTypes": {
+    "list": [
+      "video",
+      "excel",
+      "video+excel"
+    ],
+    "default": "excel"
+  },
+  "detection": {
+    "source": "",
+    "methods": {
+      "list": ["ThresholdDetector"],
+      "default": "ThresholdDetector"
+    },
+    "params": {
+      "cropHeightBound": {
+        "min": 0,
+        "max": 2160,
+        "default": [0, 2120]
+      },
+      "cropWidthBound": {
+        "min": 0,
+        "max": 3840,
+        "default": [1290, 3400]
+      },
+      "flowLeftToRight": {
+        "default": true
+      },
+
+      "ThresholdDetector": {
+        "lThreshold": {
+          "min": 0,
+          "max": 255,
+          "default": [0, 65]
+        },
+        "sizeBound": {
+          "min": 0,
+          "max": 500,
+          "default": [130, 310]
+        },
+        "closingIterations": {
+          "min": 0,
+          "max": 10,
+          "default": 5
+        }
+      }
+    }
+  },
+  "postOutputTypes": {
+    "list": [
+      "video",
+      "excel"
+    ],
+    "default": "excel"
+  },
+  "postprocess": {
+    "source": "",
+    "trackers": {
+      "list": ["VicinityTracker"],
+      "default": "VicinityTracker"
+    },
+    "params": {
+      "VicinityTracker": {
+        "framesTofind": {
+          "default": 15
+        },
+        "maxDist": {
+          "default": 25
+        },
+        "maxDistIncRatio": {
+          "default": 0.05
+        }
+      },
+
+      "DataConverter": {
+        "selected": false,
+        "fps": 30,
+        "pixelToCmRatio": 1.0,
+
+        "pixelDiffToPixelVelocity": false,
+        "pixelToCm": false,
+        "relAngleDegToSinRelAngle": false,
+        "relAngleDegToCosRelAngle": false
+      },
+      "PositionBounder": {
+        "selected": false,
+        "default": [],
+        "yBound": {
+          "min": 0,
+          "max": 2160,
+          "default": [0, 2160]
+        },
+        "xBound": {
+          "min": 0,
+          "max": 3840,
+          "default": [0, 3840]
+        }
+      }
+    }
+  },
+  "paramNames": {
+    "detectionOutputType": "processor.detection_output_type",
+
+    "detMethod": "processor.detection_processor.detector",
+    "detCropHeightBound": [
+      "processor.detection_processor.overall_crop[0, 0]",
+      "processor.detection_processor.overall_crop[1, 0]"
+    ],
+    "detCropWidthBound": [
+      "processor.detection_processor.overall_crop[0, 1]",
+      "processor.detection_processor.overall_crop[1, 1]"
+    ],
+    "detFlow": "processor.detection_processor.flow_left_to_right",
+
+    "thdLThreshold": "processor.detection_processor._available_detectors['ThresholdDetector'].l_thresh",
+    "thdSizeBound": "processor.detection_processor._available_detectors['ThresholdDetector'].size_bound",
+    "thdClosingIterations": "processor.detection_processor._available_detectors['ThresholdDetector'].closing_iterations",
+
+    "postOutputType": "processor.post_output_type",
+    "postTracker": "processor.postprocessor.tracker",
+
+    "vctFramesToFind": "processor.postprocessor._available_trackers['VicinityTracker'].nb_frames_to_find",
+    "vctMaxDist": "processor.postprocessor._available_trackers['VicinityTracker'].max_dist",
+    "vctMaxDistIncRatio": "processor.postprocessor._available_trackers['VicinityTracker'].max_dist_inc_ratio",
+
+    "dataConverterSelected": "processor.postprocessor._post_methods_selected['DataConverter']",
+    "dcnFps": "processor.postprocessor._post_methods['DataConverter'].fps",
+    "dcnPixelToCmRatio": "processor.postprocessor._post_methods['DataConverter'].pixel_to_cm_ratio",
+    "dcnPixelDiffToPixelVelocity": "processor.postprocessor._post_methods['DataConverter'].selected['pixel_diff_to_pixel_velocity']",
+    "dcnPixelToCm": "processor.postprocessor._post_methods['DataConverter'].selected['pixel_to_cm']",
+    "dcnRelAngleDegToSinRelAngle": "processor.postprocessor._post_methods['DataConverter'].selected['rel_angle_deg_to_sin_rel_angle']",
+    "dcnRelAngleDegToCosRelAngle": "processor.postprocessor._post_methods['DataConverter'].selected['rel_angle_deg_to_cos_rel_angle']",
+
+    "positionBounderSelected": "processor.postprocessor._post_methods_selected['PositionBounder']",
+    "pbdBounds": "processor.postprocessor._post_methods['PositionBounder'].bounds"
+  }
+}
