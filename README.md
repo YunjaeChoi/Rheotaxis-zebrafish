@@ -1,6 +1,6 @@
-# zebrafish  
+# Rheotaxis-zebrafish
 
-Zebrafish detection and tracking from video for zebrafish rheotaxis.
+Automated zebrafish reheotaxis analysis platform.
 
 Consists:
   1. library for zebrafish detection and tracking (`zebrafish`)
